@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradPath Reset Password</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login-page">
+
+    <div class="login-card">
+
+        <h1>🎓 GradPath</h1>
+        <h2>Reset Password</h2>
+
+        <p>
+            Create a new password for your GradPath account.
+        </p>
+
+        <form id="resetForm" class="login-form">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="New password"
+                required
+            >
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm password"
+                required
+            >
+
+            <button type="submit">Reset Password</button>
+
+        </form>
+
+        <p id="message" class="login-message"></p>
+
+        <div class="login-hint">
+            <p>
+                Remember your password?
+                <br>
+                <a href="login.html">Back to login</a>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="reset.js"></script>
+
+</body>
+</html>
