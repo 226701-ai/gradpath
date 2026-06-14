@@ -20,6 +20,7 @@ const enrolmentRoute = require("./routes/enrolment");
 const studentDashboardRoutes = require("./routes/studentDashboard");
 const authRoutes = require("./routes/auth");
 const certRouter = require("./routes/certification");
+const internshipRoutes = require("./routes/internship");
 
 const PORT = process.env.PORT || 3000;
 
@@ -33,7 +34,8 @@ app.use("/api/course", courseRoutes);
 app.use("/api/enrolment", enrolmentRoute);
 app.use("/api/student-dashboard", studentDashboardRoutes);
 app.use("/api/auth", authRoutes);
-app.use("/api/certifications", certRouter); // Everything is grouped now
+app.use("/api/certifications", certRouter);
+app.use("/api/internships", internshipRoutes);
 
 // 4. SERVE FRONTEND
 app.use(express.static(path.join(__dirname, "../frontend")));

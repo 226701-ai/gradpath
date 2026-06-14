@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
                 FROM certifications GROUP BY student_id
             ),
             StudentInternship AS (
-                SELECT student_id, SUM(rating) as intern_points 
+                SELECT student_id, ROUND(AVG(rating), 2) as intern_avg_rating 
                 FROM internships GROUP BY student_id
             )
 

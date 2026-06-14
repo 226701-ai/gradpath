@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Certification Management</title>
+    <title>Internship Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,38 +23,40 @@
 </nav>
 
 <div class="container">
-    <h1>Certification Management</h1>
+    <h1>Internship Management</h1>
 
-    <form id="certForm" class="management-form">
+    <form id="internForm" class="management-form">
         <select id="student_id" required>
             <option value="">Select Student</option>
         </select>
 
-        <input type="text" id="cert_name" placeholder="Certification Name (e.g., Huawei HCIA)" required>
+        <input type="text" id="company_name" placeholder="Company Name" required>
 
-        <select id="cert_grade" required>
-            <option value="" disabled selected>Select Grade</option>
-            <option value="A">Grade A</option>
-            <option value="B">Grade B</option>
-            <option value="C">Grade C</option>
+        <select id="rating" required>
+            <option value="" disabled selected>Company Rating (1-5)</option>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Very Good</option>
+            <option value="3">3 - Good</option>
+            <option value="2">2 - Fair</option>
+            <option value="1">1 - Poor</option>
         </select>
 
-        <button type="submit">Add Certification</button>
+        <button type="submit">Add Internship</button>
     </form>
 
     <table class="data-table">
         <thead>
             <tr>
                 <th>Student</th>
-                <th>Certification Name</th>
-                <th>Grade</th>
+                <th>Company</th>
+                <th>Rating</th>
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody id="certList"></tbody>
+        <tbody id="internList"></tbody>
     </table>
 </div>
 
-<script src="certification.js"></script>
+<script src="internship.js"></script>
 </body>
 </html>
