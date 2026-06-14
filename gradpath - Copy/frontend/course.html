@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">GradPath</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="student.html">Students</a>
+        <a href="activity.html">Activities</a>
+        <a href="outcome.html">Outcomes</a>
+        <a href="course.html">Courses</a>
+        <a href="enrolment.html">Enrolment</a>
+        <a href="studentActivity.html">Student Activities</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>Course Management</h1>
+
+    <form id="courseForm">
+
+        <input type="text" id="course_code" placeholder="Course Code" required>
+        <input type="text" id="course_name" placeholder="Course Name" required>
+        <input type="number" id="credit_hours" placeholder="Credit Hours" required>
+
+        <button type="submit">Add Course</button>
+
+    </form>
+
+    <input type="text" id="searchCourse" class="search-box" placeholder="Search course...">
+
+    <div id="courseList"></div>
+
+</div>
+
+<!-- EDIT COURSE MODAL -->
+<div id="editCourseModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Edit Course</h2>
+
+        <input type="text" id="editCourseCode" placeholder="Course Code" readonly>
+        <input type="text" id="editCourseName" placeholder="Course Name">
+        <input type="number" id="editCreditHours" placeholder="Credit Hours">
+
+        <button onclick="updateCourse()">Save</button>
+        <button onclick="closeCourseModal()">Cancel</button>
+
+    </div>
+
+</div>
+
+<script src="course.js"></script>
+
+</body>
+</html> 

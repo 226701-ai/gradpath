@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Outcomes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">GradPath</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="student.html">Students</a>
+        <a href="activity.html">Activities</a>
+        <a href="outcome.html">Outcomes</a>
+        <a href="course.html">Courses</a>
+        <a href="enrolment.html">Enrolment</a>
+        <a href="studentActivity.html">Student Activities</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Learning Outcomes</h1>
+
+            <p class="page-description">
+                Manage learning outcome categories used to evaluate student achievement and employability.
+            </p>
+        </div>
+
+        <div class="stat-chip">
+            Total Outcomes:
+            <span id="outcomeCount">0</span>
+        </div>
+
+    </div>
+
+    <input
+        type="text"
+        id="searchOutcome"
+        placeholder="Search outcome name or category..."
+        class="search-box"
+    >
+
+    <form id="outcomeForm" class="management-form">
+
+        <input
+            type="text"
+            id="outcome_name"
+            placeholder="Outcome Name"
+            required
+        >
+
+        <input
+            type="text"
+            id="category"
+            placeholder="Category"
+            required
+        >
+
+        <button type="submit">
+            Add Outcome
+        </button>
+
+    </form>
+
+    <div id="outcomeList"></div>
+
+</div>
+
+<!-- EDIT OUTCOME MODAL -->
+<div id="editOutcomeModal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Edit Outcome</h2>
+
+        <input
+            type="text"
+            id="editOutcomeName"
+            placeholder="Outcome Name"
+        >
+
+        <input
+            type="text"
+            id="editCategory"
+            placeholder="Category"
+        >
+
+        <div class="modal-actions">
+
+            <button onclick="updateOutcome()">
+                Save Changes
+            </button>
+
+            <button
+                onclick="closeOutcomeModal()"
+                class="secondary-btn"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="outcome.js"></script>
+
+</body>
+</html>

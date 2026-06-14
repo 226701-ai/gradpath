@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">GradPath</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="student.html">Students</a>
+        <a href="activity.html">Activities</a>
+        <a href="outcome.html">Outcomes</a>
+        <a href="course.html">Courses</a>
+        <a href="enrolment.html">Enrolment</a>
+        <a href="studentActivity.html">Student Activities</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="page-header">
+        <div>
+            <h1>Student Management</h1>
+            <p>Manage student profiles, matric numbers, emails and academic programmes.</p>
+        </div>
+    </div>
+
+    <input
+        type="text"
+        id="searchStudent"
+        placeholder="Search student by name, matric, email or programme..."
+        class="search-box"
+    >
+
+    <form id="studentForm" class="management-form">
+
+        <input type="text" id="matric" placeholder="Matric Number" required>
+        <input type="text" id="name" placeholder="Student Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="programme" placeholder="Programme" required>
+
+        <button type="submit">Add Student</button>
+
+    </form>
+
+    <div id="studentList"></div>
+
+</div>
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+
+        <h2>Edit Student</h2>
+
+        <input type="text" id="editMatric" placeholder="Matric Number">
+        <input type="text" id="editName" placeholder="Student Name">
+        <input type="email" id="editEmail" placeholder="Email">
+        <input type="text" id="editProgramme" placeholder="Programme">
+
+        <div class="modal-actions">
+            <button onclick="updateStudent()">Save Changes</button>
+            <button onclick="closeModal()" class="secondary-btn">Cancel</button>
+        </div>
+
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="student.js"></script>
+
+</body>
+</html>

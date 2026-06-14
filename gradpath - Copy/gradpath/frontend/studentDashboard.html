@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">GradPath</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Admin Dashboard</a>
+        <a href="studentDashboard.html">Student Dashboard</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>Student Employability Dashboard</h1>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h3>Student Name</h3>
+            <p id="studentName">-</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Matric Number</h3>
+            <p id="studentMatric">-</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Programme</h3>
+            <p id="studentProgramme">-</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Employability Score</h3>
+            <p id="studentScore">0</p>
+        </div>
+
+    </div>
+
+    <div class="progress-section">
+
+        <h2>Employability Progress</h2>
+
+        <div class="progress-bar">
+            <div
+                id="scoreProgress"
+                class="progress-fill"
+                style="width:0%;"
+            >
+                0%
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="studentDashboard.js"></script>
+
+</body>
+</html>

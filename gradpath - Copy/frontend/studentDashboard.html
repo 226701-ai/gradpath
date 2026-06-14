@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">GradPath</div>
+
+    <div class="nav-links">
+        <a href="studentDashboard.html" class="active">Student Dashboard</a>
+        <a href="login.html">Logout</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="page-header">
+        <div>
+            <h1>Student Employability Dashboard</h1>
+            <p class="page-description">
+                View your academic, activity and leadership-based employability performance.
+            </p>
+        </div>
+    </div>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h3>Student Name</h3>
+            <p id="studentName">-</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Matric Number</h3>
+            <p id="studentMatric">-</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Programme</h3>
+            <p id="studentProgramme">-</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>CGPA</h3>
+            <p id="studentCGPA">0.00</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h3>CGPA Score</h3>
+            <p><span id="cgpaScore">0</span> / 35</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Activity Score</h3>
+            <p><span id="activityScore">0</span> / 25</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Leadership Score</h3>
+            <p><span id="leadershipScore">0</span> / 40</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Status</h3>
+            <p id="employabilityStatus">-</p>
+        </div>
+
+    </div>
+
+    <div class="progress-section">
+
+        <h2>Final Employability Score</h2>
+
+        <h1 id="studentScore">0%</h1>
+
+        <div class="progress-bar">
+            <div
+                id="scoreProgress"
+                class="progress-fill"
+                style="width:0%;"
+            >
+                0%
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="studentDashboard.js"></script>
+
+</body>
+</html>

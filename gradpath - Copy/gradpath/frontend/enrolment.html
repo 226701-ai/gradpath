@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GradPath Enrolment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">GradPath</div>
+
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="student.html">Students</a>
+        <a href="activity.html">Activities</a>
+        <a href="outcome.html">Outcomes</a>
+        <a href="course.html">Courses</a>
+        <a href="enrolment.html">Enrolment</a>
+        <a href="studentActivity.html">Student Activities</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>Course Enrolment</h1>
+
+    <form id="enrolmentForm">
+        <select id="student_id" required>
+            <option value="">Select Student</option>
+        </select>
+
+        <select id="course_code" required>
+            <option value="">Select Course</option>
+        </select>
+
+        <input type="text" id="grade" placeholder="Grade" required>
+
+        <button type="submit">Add Enrolment</button>
+    </form>
+
+    <input
+        type="text"
+        id="searchEnrolment"
+        placeholder="🔍 Search enrolment..."
+        class="search-box"
+    >
+
+    <table class="data-table">
+        <thead>
+            <tr>
+            <th>Matric</th>
+            <th>Student Name</th>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Grade</th>
+            <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="enrolmentList"></tbody>
+    </table>
+
+</div>
+
+<script src="enrolment.js"></script>
+
+</body>
+</html>
