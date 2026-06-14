@@ -19,27 +19,106 @@ router.get("/", async (req, res) => {
 });
 
 /* =======================
-   CREATE STUDENT
+   ADD STUDENT + CREATE USER ACCOUNT
 ======================= */
 router.post("/", async (req, res) => {
-  const { matric, name, email, programme } = req.body;
+    const { matric, name, email, programme } = req.body;
 
-  try {
-    const result = await pool.query(
-      `
-      INSERT INTO students (matric, name, email, programme)
-      VALUES ($1, $2, $3, $4)
-      RETURNING *
-      `,
-      [matric, name, email, programme]
-    );
+    if (!matric || !name || !email || !programme) {
+        return res.status(400).json({
+            success: false,
+            message: "All fields are required"
+        });
+    }
 
-    res.json(result.rows[0]);
+    const client = await pool.connect();
 
-  } catch (err) {
-    console.error("POST student error:", err.message);
-    res.status(500).json({ error: err.message });
-  }
+    try {
+        await client.query("BEGIN");
+
+        // Check if matric already exists in students table
+        const studentCheck = await client.query(
+            `
+            SELECT *
+            FROM students
+            WHERE matric = $1 OR email = $2
+            `,
+            [matric, email]
+        );
+
+        if (studentCheck.rows.length > 0) {
+            await client.query("ROLLBACK");
+
+            return res.status(400).json({
+                success: false,
+                message: "Student matric or email already exists"
+            });
+        }
+
+        // Check if username already exists in users table
+        const usernameCheck = await client.query(
+            `
+            SELECT *
+            FROM users
+            WHERE username = $1
+            `,
+            [matric]
+        );
+
+        if (usernameCheck.rows.length > 0) {
+            await client.query("ROLLBACK");
+
+            return res.status(400).json({
+                success: false,
+                message: "User account already exists for this matric number"
+            });
+        }
+
+        // Insert into students table
+        const studentResult = await client.query(
+            `
+            INSERT INTO students
+            (matric, name, email, programme)
+            VALUES ($1, $2, $3, $4)
+            RETURNING student_id
+            `,
+            [matric, name, email, programme]
+        );
+
+        const studentId = studentResult.rows[0].student_id;
+
+        // Automatically insert into users table
+        await client.query(
+            `
+            INSERT INTO users
+            (username, password, role, student_id)
+            VALUES ($1, $2, 'student', $3)
+            `,
+            [matric, matric, studentId]
+        );
+
+        await client.query("COMMIT");
+
+        res.json({
+            success: true,
+            message: "Student and user account created successfully",
+            login: {
+                username: matric,
+                password: matric
+            }
+        });
+
+    } catch (err) {
+        await client.query("ROLLBACK");
+
+        res.status(500).json({
+            success: false,
+            message: err.message
+        });
+
+    } finally {
+        client.release();
+    }
 });
 
 /* =======================
