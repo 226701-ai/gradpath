@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certification Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">GradPath</div>
+    <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="student.html">Students</a>
+        <a href="activity.html">Activities</a>
+        <a href="course.html">Courses</a>
+        <a href="certification.html" class="active">Certifications</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Certification Management</h1>
+
+    <form id="certForm" class="management-form">
+        <select id="student_id" required>
+            <option value="">Select Student</option>
+        </select>
+
+        <input type="text" id="cert_name" placeholder="Certification Name (e.g., Huawei HCIA)" required>
+
+        <select id="cert_grade" required>
+            <option value="" disabled selected>Select Grade</option>
+            <option value="A">Grade A</option>
+            <option value="B">Grade B</option>
+            <option value="C">Grade C</option>
+        </select>
+
+        <button type="submit">Add Certification</button>
+    </form>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Certification Name</th>
+                <th>Grade</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="certList"></tbody>
+    </table>
+</div>
+
+<script src="certification.js"></script>
+</body>
+</html>
