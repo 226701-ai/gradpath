@@ -6,29 +6,24 @@ const pool = require("../db");
    GET ALL STUDENT ACTIVITIES
 ======================= */
 router.get("/", async (req, res) => {
-  try {
-    const result = await pool.query(`
-      SELECT
-        sa.student_activity_id,
-        s.name AS student_name,
-        a.activity_name,
-        a.score,
-        lo.outcome_name
-      FROM student_activities sa
-      JOIN students s ON sa.student_id = s.student_id
-      JOIN activities a ON sa.activity_id = a.activity_id
-      JOIN learning_outcomes lo ON a.outcome_id = lo.outcome_id
-      ORDER BY sa.student_activity_id
-    `);
-
-    res.json(result.rows);
-
-  } catch (err) {
-    console.error("GET student activities error:", err.message);
-    res.status(500).json({
-      error: err.message
-    });
-  }
+    try {
+        const result = await pool.query(`
+            SELECT 
+                sa.student_activity_id,
+                s.name AS student_name,
+                a.activity_name,
+                a.score,
+                o.outcome_name,
+                sa.role  -- <--- ADD THIS LINE TO YOUR SQL
+            FROM student_activities sa
+            JOIN students s ON sa.student_id = s.student_id
+            JOIN activities a ON sa.activity_id = a.activity_id
+            JOIN learning_outcomes o ON a.outcome_id = o.outcome_id
+        `);
+        res.json(result.rows);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
 });
 
 /* =======================
